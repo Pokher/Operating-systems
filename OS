@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/types.h>
+
+
+int main()
+{
+fork();
+printf("A\n");
+fork();
+printf("B\n");
+fork();
+printf("C\n");
+
+printf("The PID is %d\n", getpid());
+
+return 0;
+}
+
+Output:
+A
+A
+B
+B
+C
+The PID is 2345
+C
+The PID is 2346
+geu@geu-HP-Compaq-4000-Pro-SFF-PC:~$ C
+The PID is 2350
+B
+C
+The PID is 2347
+C
+The PID is 2351
+C
+The PID is 2349
+B
+C
+The PID is 2348
+C
+The PID is 2352
+
