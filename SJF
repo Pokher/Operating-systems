@@ -1,0 +1,44 @@
+/******************************************************************************
+
+                            Online C Compiler.
+                Code, Compile, Run and Debug C program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <stdio.h>
+
+int main()
+{
+    int size=5, x, TotalW=0;
+    int W[6];
+    int BT[5]={10,5,2,1,15};
+    int index[5]={1,2,3,4,5};
+    W[0]=0;
+    for(int i=0;i<size;i++)
+    {
+        for(int j=i+1;j<size;j++)
+        {
+            if(BT[i]>BT[j])
+            {
+                x=BT[j];
+                BT[j]=BT[i];
+                BT[i]=x;
+                
+                x=index[j];
+                index[j]=index[i];
+                index[i]=x;
+            }
+        }
+    }
+    for(int i=0;i<size;i++)
+    {
+        printf("Job %d excuted with cost %d ", index[i], BT[i]);
+        W[i+1]+=W[i]+BT[i];
+        printf("Weight = %d\n", W[i+1]);
+        TotalW+=W[i+1]-BT[i];
+    }
+    printf("Total Weight is %d\n", TotalW);
+    printf("Average Weight is %f", TotalW/5.0);
+    return 0;
+}
